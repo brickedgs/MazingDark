@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/tiles.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://scenes/Bulb.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/dark_atmosphere.mp3" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 5, 3.75, 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "cameraMovement"
+length = 4.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 2.2, 2.4, 3, 3.2, 3.8, 4, 4.2, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 5, 3.75, 6 ), Vector3( 5, 3.75, -2 ), Vector3( 5, 3.75, -5 ), Vector3( -2, 3.75, -5 ), Vector3( -5, 3.75, -5 ), Vector3( -5, 3.75, -3 ), Vector3( -5, 3.75, -0.999999 ), Vector3( -1, 3.75, -1 ), Vector3( 1, 3.75, -1 ), Vector3( 1, 3.75, 3 ), Vector3( 1, 3.75, 5 ), Vector3( 3, 3.75, 5 ), Vector3( 5, 3.75, 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 1.8, 2, 2.2, 2.4, 3, 3.2, 3.8, 4, 4.2, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[sub_resource type="Environment" id=3]
+ambient_light_energy = 0.01
+
+[node name="3DMenu" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( 0, 0, 1, 1, 0, 1, 2, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 65537, 0, 0, 65539, 0, 0, 131068, 0, 0, 131070, 0, 0, 131071, 0, 0, 196608, 0, 3, 196609, 0, 3, 196610, 0, 3, 196611, 0, 3, 262140, 0, 3, 262141, 0, 3, 262142, 0, 3, 262143, 0, 3, 0, 1, 1, 1, 1, 1, 2, 1, 1, 65533, 1, 1, 65534, 1, 1, 65535, 1, 1, 65537, 1, 0, 65539, 1, 0, 131068, 1, 0, 131070, 1, 0, 131071, 1, 0, 196608, 1, 3, 196609, 1, 3, 196610, 1, 3, 196611, 1, 3, 262140, 1, 3, 262141, 1, 3, 262142, 1, 3, 262143, 1, 3, 0, 2, 1, 1, 2, 1, 2, 2, 1, 65533, 2, 1, 65534, 2, 1, 65535, 2, 1, 65539, 2, 0, 131068, 2, 0, 131071, 2, 0, 196608, 2, 3, 196609, 2, 3, 196610, 2, 3, 196611, 2, 3, 262140, 2, 3, 262141, 2, 3, 262142, 2, 3, 262143, 2, 3, 65536, 3, 0, 65537, 3, 0, 65538, 3, 0, 65539, 3, 0, 131068, 3, 0, 131069, 3, 0, 131070, 3, 0, 131071, 3, 0, 196608, 3, 3, 196609, 3, 3, 196610, 3, 3, 196611, 3, 3, 262140, 3, 3, 262141, 3, 3, 262142, 3, 3, 262143, 3, 3, 65536, 65532, 0, 65537, 65532, 0, 65538, 65532, 0, 65539, 65532, 0, 131068, 65532, 0, 131069, 65532, 0, 131070, 65532, 0, 131071, 65532, 0, 196608, 65532, 3, 196609, 65532, 3, 196610, 65532, 3, 196611, 65532, 3, 262140, 65532, 3, 262141, 65532, 3, 262142, 65532, 3, 262143, 65532, 3, 0, 65533, 1, 1, 65533, 1, 2, 65533, 1, 65533, 65533, 1, 65534, 65533, 1, 65535, 65533, 1, 65539, 65533, 0, 131068, 65533, 0, 196608, 65533, 3, 196609, 65533, 3, 196610, 65533, 3, 196611, 65533, 3, 262140, 65533, 3, 262141, 65533, 3, 262142, 65533, 3, 262143, 65533, 3, 0, 65534, 1, 1, 65534, 1, 2, 65534, 1, 65533, 65534, 1, 65534, 65534, 1, 65535, 65534, 1, 65536, 65534, 0, 65537, 65534, 0, 65539, 65534, 0, 131068, 65534, 0, 131070, 65534, 0, 131071, 65534, 0, 196608, 65534, 3, 196609, 65534, 3, 196610, 65534, 3, 196611, 65534, 3, 262140, 65534, 3, 262141, 65534, 3, 262142, 65534, 3, 262143, 65534, 3, 0, 65535, 1, 1, 65535, 1, 2, 65535, 1, 65533, 65535, 1, 65534, 65535, 1, 65535, 65535, 1, 65537, 65535, 0, 65539, 65535, 0, 131068, 65535, 0, 196608, 65535, 3, 196609, 65535, 3, 196610, 65535, 3, 196611, 65535, 3, 262140, 65535, 3, 262141, 65535, 3, 262142, 65535, 3, 262143, 65535, 3 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 1, 0 )
+}
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.75, 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+autoplay = "cameraMovement"
+playback_speed = 0.1
+anims/RESET = SubResource( 1 )
+anims/cameraMovement = SubResource( 2 )
+
+[node name="SpotLight" type="SpotLight" parent="Camera"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Bulb" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.68497, 4.02905, -2.43377 )
+omni_range = 2.375
+
+[node name="DarkAtmosphere" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 5.909
+autoplay = true
