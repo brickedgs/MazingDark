@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Monster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://src/Level.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Bulb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Orb.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/dark_atmosphere.mp3" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/dark_atmosphere.mp3" type="AudioStream" id=7]
+[ext_resource path="res://assets/fonts/murder.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/fonts/default_font.tres" type="DynamicFont" id=9]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.00392157, 0.00392157, 0.0352941, 1 )
@@ -30,6 +32,10 @@ glow_hdr_luminance_cap = 34.97
 glow_hdr_scale = 1.49
 glow_bicubic_upscale = true
 glow_high_quality = true
+
+[sub_resource type="DynamicFont" id=3]
+size = 128
+font_data = ExtResource( 8 )
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 4 )
@@ -101,3 +107,47 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 9 )
 [node name="DarkAtmosphere" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="Label" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+margin_top = 96.0
+margin_right = 1024.0
+margin_bottom = 202.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 3 )
+text = "MazingDark	"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/VBoxContainer/CenterContainer"]
+margin_left = 436.0
+margin_top = 107.0
+margin_right = 587.0
+margin_bottom = 191.0
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 151.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
+text = "Main Menu"
+
+[node name="QuitGameButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 151.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+text = "Quit Game"

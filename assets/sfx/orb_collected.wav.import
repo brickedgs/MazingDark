@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/orb_collected.wav-df0fa82f4929cda4045decf43b16515b.sample"
+path="res://.import/orb_collected.wav-8ed57a07f3dacc01b0caa0c8bcb06f1b.sample"
 
 [deps]
 
-source_file="res://assets/orb_collected.wav"
-dest_files=[ "res://.import/orb_collected.wav-df0fa82f4929cda4045decf43b16515b.sample" ]
+source_file="res://assets/sfx/orb_collected.wav"
+dest_files=[ "res://.import/orb_collected.wav-8ed57a07f3dacc01b0caa0c8bcb06f1b.sample" ]
 
 [params]
 

@@ -158,3 +158,7 @@ func on_fear_area_entered(body):
 func on_fear_area_exited(body):
 	if body.name == "Monster":
 		sfx_breathing.volume_db = -10
+
+func die():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene("res://scenes/GameOver.tscn")

@@ -66,7 +66,7 @@ func set_target(target):
 		find_path_timer.stop()
 
 func on_hit_player(body):
-	print(body)
+	body.die()
 	
 
 func find_path():

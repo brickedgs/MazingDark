@@ -8,10 +8,10 @@ func _ready():
 	animationPlayer.connect("animation_finished", self, "on_animation_finished")
 
 func fade_in():
-	pass
+	animationPlayer.play("fade_in")
 
 func fade_out():
-	pass
+	animationPlayer.play("fade_out")
 
-func on_animation_finished():
-	emit_signal("fade_sinished")
+func on_animation_finished(name):
+	emit_signal("fade_finished")

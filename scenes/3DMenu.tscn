@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/tiles.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://scenes/Bulb.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/dark_atmosphere.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/dark_atmosphere.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001

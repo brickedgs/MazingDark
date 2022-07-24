@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Monster.gd" type="Script" id=1]
-[ext_resource path="res://assets/monster.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sfx/monster.wav" type="AudioStream" id=2]
 [ext_resource path="res://materials/monster/texture.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape" id=1]

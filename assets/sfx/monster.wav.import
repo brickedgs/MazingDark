@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/breathing.wav-35367e3140d448ffdf8d69a52e18ce70.sample"
+path="res://.import/monster.wav-d85419f505f625e9840efe867939404a.sample"
 
 [deps]
 
-source_file="res://assets/breathing.wav"
-dest_files=[ "res://.import/breathing.wav-35367e3140d448ffdf8d69a52e18ce70.sample" ]
+source_file="res://assets/sfx/monster.wav"
+dest_files=[ "res://.import/monster.wav-d85419f505f625e9840efe867939404a.sample" ]
 
 [params]
 

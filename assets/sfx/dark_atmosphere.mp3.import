@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dark_atmosphere.mp3-5172513e42a0aa75ab380ebdc06c30fa.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/dark_atmosphere.mp3"
+dest_files=[ "res://.import/dark_atmosphere.mp3-5172513e42a0aa75ab380ebdc06c30fa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
