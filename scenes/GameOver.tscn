@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/3DMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/murder.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/Fader.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/fonts/default_font.tres" type="DynamicFont" id=4]
-[ext_resource path="res://src/MainMenu.gd" type="Script" id=5]
-[ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/GameOver.gd" type="Script" id=5]
 [ext_resource path="res://assets/sfx/jumpscare.wav" type="AudioStream" id=7]
 [ext_resource path="res://materials/monster/texture.jpg" type="Texture" id=8]
 
@@ -15,7 +14,6 @@ font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Spatial"]
 script = ExtResource( 5 )
-game_scene = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -55,6 +53,7 @@ margin_right = 152.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 4 )
 text = "Play Again"
+flat = true
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/Fader/Control/VBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 44.0
@@ -62,8 +61,10 @@ margin_right = 152.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 4 )
 text = "Quit"
+flat = true
 
 [node name="JumpScareSprite" type="Sprite" parent="CanvasLayer/Fader"]
+visible = false
 position = Vector2( 903.5, 500 )
 scale = Vector2( 3.4707, 1.96094 )
 texture = ExtResource( 8 )
@@ -75,5 +76,5 @@ stream = ExtResource( 7 )
 autoplay = true
 
 [node name="JumpScareTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
