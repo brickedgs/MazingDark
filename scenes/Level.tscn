@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Monster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sfx/dark_atmosphere.mp3" type="AudioStream" id=7]
 [ext_resource path="res://assets/fonts/murder.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://assets/fonts/default_font.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/sprites/orb.png" type="Texture" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.00392157, 0.00392157, 0.0352941, 1 )
@@ -35,6 +36,10 @@ glow_high_quality = true
 
 [sub_resource type="DynamicFont" id=3]
 size = 128
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
 font_data = ExtResource( 8 )
 
 [node name="Level" type="Spatial"]
@@ -104,6 +109,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 1 )
 [node name="Orb9" parent="GridMap/Orbs" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 9 )
 
+[node name="Orb10" parent="GridMap/Orbs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3895, 2, 5.19442 )
+
 [node name="DarkAtmosphere" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
@@ -111,6 +119,7 @@ autoplay = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -151,3 +160,40 @@ margin_right = 151.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 9 )
 text = "Quit Game"
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD"]
+anchor_right = 1.0
+margin_bottom = 106.0
+
+[node name="OrbsLabel" type="Label" parent="CanvasLayer/HUD/VBoxContainer"]
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 73.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 4 )
+text = "10/10	"
+align = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/HUD/VBoxContainer/OrbsLabel"]
+anchor_left = 0.5
+anchor_top = 2.382
+anchor_right = 0.5
+anchor_bottom = 2.382
+margin_left = -512.0
+margin_top = 0.0119934
+margin_right = 512.0
+margin_bottom = 0.0119934
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/HUD/VBoxContainer/OrbsLabel/AspectRatioContainer"]
+position = Vector2( 439, -78.674 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="CanvasLayer/HUD"]
+wait_time = 2.0
+one_shot = true
